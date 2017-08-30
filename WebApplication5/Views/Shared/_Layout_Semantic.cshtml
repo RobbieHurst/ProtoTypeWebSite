@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+	@Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/semantic")
+</head>
+<body>
+    <div class="ui inverted page grid masthead segment">
+        <div class="column">
+            <div class="inverted secondary pointing ui menu">
+                <div class="header item">Digicall</div>
+                <div class="right menu">
+                    <div class="ui top right pointing mobile dropdown link item">
+                        Menu
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item">Activities</a>
+                            <a class="item">Accounting</a>
+                            <a class="item">Setup</a>
+                        </div>
+                    </div>
+                    <div class="ui dropdown link item">
+                        System
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item">Home</a>
+                            <a class="item">Communications</a>
+                            <a class="item">Documents</a>
+                        </div>
+                    </div>
+                    <a class="item">Library</a>
+                    <a class="item">Community</a>
+                </div>
+            </div>
+            <img src="" class="ui medium image" />
+            <div class="ui hidden transition information">
+                <h1 class="ui inverted header">
+                    Digicall Group
+                </h1>
+                <p></p>
+                <div class="large basic inverted animated fade ui button">
+                    <div class="visible content">Come to ICU 2013</div>
+                    <div class="hidden content">Register Now</div>
+                </div>
+            </div>
+        </div>
+    </div>
+@RenderBody()
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/semantic")
+@RenderSection("scripts", required: false)
+</body>
+</html>

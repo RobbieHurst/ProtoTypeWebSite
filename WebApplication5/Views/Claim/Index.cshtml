@@ -1,0 +1,31 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Semantic.cshtml"; ;
+}
+<div class="ui page grid overview segment">
+    <div class="ui two wide column"></div>
+    <div class="twelve wide column">
+        <div class="ui three column center aligned stackable divided grid">
+            <div class="column">
+                <div class="ui icon header">
+                    <i class="circular mail link icon"></i>
+                </div>
+                <p></p>
+                <p><a class="ui teal right labeled icon button" href="#">Messages<i class="right long arrow icon"></i></a></p>
+            </div>
+            <div class="column">
+                <div class="ui icon header">
+                    <i class="circular suitcase icon"></i>
+                </div>
+                <p></p>
+                <p><a class="ui teal right labeled icon button" href="@Url.Action("Index", "Table")">Claims<i class="arrow right icon"></i></a></p>
+            </div>
+            <div class="column">
+                <div class="ui icon header">
+                    <i class="circular user link icon"></i>
+                </div>
+                <p></p>
+                <p><a class="ui teal right labeled icon button" href="@Url.Action("Index","User")">Users<i class="right long arrow icon"></i></a></p>
+            </div>
+        </div>
+    </div>
+</div>
