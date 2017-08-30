@@ -1,0 +1,14 @@
+Thumbs.db
+bin/
+obj/
+.DS_Store
+.vs/
+.vs/config/
+Web/branch.txt
+Web/commit.txt
+Web/Temp/
+Build/ClientFolders/
+PrecompiledWeb/
+TemporaryFiles/
+TestResults/
+*.user

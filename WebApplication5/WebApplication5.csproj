@@ -148,6 +148,7 @@
     <Compile Include="App_Start\SemanticUIStart.cs" />
     <Compile Include="Controllers\ClaimController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewClaimController.cs" />
     <Compile Include="Controllers\SemanticUIController.cs" />
     <Compile Include="Controllers\TableController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -373,6 +374,7 @@
     <Content Include="Content\themes\material\assets\fonts\icons.ttf" />
     <Content Include="Content\themes\material\assets\fonts\icons.woff" />
     <Content Include="Content\themes\material\assets\fonts\icons.woff2" />
+    <Content Include="Views\NewClaim\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
