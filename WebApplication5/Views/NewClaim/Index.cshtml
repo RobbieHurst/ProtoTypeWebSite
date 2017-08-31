@@ -3,9 +3,9 @@
     Layout = "~/Views/Shared/_Layout_Semantic.cshtml"; ;
 }
 
-<div class="ui center aligned page grid stackable relaxed feature segment">
+<div class="ui page grid stackable relaxed feature segment">
     <div class="row">
-        <div class="twelve wide column">
+        <div class="sixteen wide column">
             <form class="ui form">
                 <h4 class="ui dividing header">Claim Information</h4>
                 <div class="field">
@@ -30,156 +30,118 @@
                         <option value="VA">[Auto Select Advisor]</option>
                     </select>
                 </div>
+            <div class="field">
+                <label>Policy Type</label>
+                <select class="ui fluid dropdown">
+                    <option value="VA">[Auto Select Policy]</option>
+                </select>
+            </div>
+            <div class="four fields">
                 <div class="field">
-                    <label>Policy Type</label>
-                    <select class="ui fluid dropdown">
-                        <option value="VA">[Auto Select Policy]</option>
-                    </select>
+                    <label>Policy No</label>
+                    <div class="field">
+                        <input type="text" name="policyNo" placeholder="Policy No">
+                    </div>
                 </div>
                 <div class="field">
                     <label>Claim No</label>
-                    <div class="two fields">
-                        <div class="eight wide field">
+                    <div class="field">
+                        <div class="field">
                             <input type="text" name="shipping[first-name]" placeholder="Claim No">
                         </div>
-                        <div class="eight wide field">
-                            <input type="text" name="shipping[last-name]" placeholder="Policy Holder">
-                        </div>
                     </div>
+                 </div>
+            </div>
+             <div class="field">
+                <label >Policy</label>
+            <div class="four fields">
+                    
+                <div class="field">
+                    <input type="text" name="policyHolder" placeholder="Policy Holder">
                 </div>
                 <div class="field">
-                    <label>Billing Address</label>
-                    <div class="fields">
-                        <div class="six wide field">
-                            <input type="text" name="shipping[address]" placeholder="Street Address">
-                        </div>
-                        <div class="four wide field">
-                            <input type="text" name="shipping[address-2]" placeholder="Apt #">
-                        </div>
-                    </div>
+                    <input type="text" name="policyHolderTitle" placeholder="Policy Holder Title">
                 </div>
-                <div class="two fields">
+                <div class="field">
+                    <input type="text" name="policyHolderInitials" placeholder="Policy Holder Initials">
+                </div>
+                <div class="field">
+                    <input type="text" name="policyHolderSurname" placeholder="Policy Holder Surname">
+                </div>
+               </div>
+            </div>
+            <div class="field">
+                <label>Address</label>
+                <div class="four fields">
                     <div class="field">
-                        <label>State</label>
-                        <select class="ui fluid dropdown">
-                            <option value="VA">Virginia</option>
-                            <option value="WA">Washington</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WY">Wyoming</option>
-                        </select>
+                        <input type="text" name="Street[address]" placeholder="Street Address">
                     </div>
                     <div class="field">
-                        <label>Country</label>
-                        <div class="ui fluid search selection dropdown">
-                            <input type="hidden" name="country">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">Select Country</div>
-                            <div class="menu">
-                                <div class="item" data-value="za"><i class="za flag"></i>South Africa</div>
-                                <div class="item" data-value="kr"><i class="kr flag"></i>South Korea</div>
-                                <div class="item" data-value="es"><i class="es flag"></i>Spain</div>
-                                <div class="item" data-value="lk"><i class="lk flag"></i>Sri Lanka</div>
-                                <div class="item" data-value="sd"><i class="sd flag"></i>Sudan</div>
-                                <div class="item" data-value="sr"><i class="sr flag"></i>Suriname</div>
-                                <div class="item" data-value="sj"><i class="sj flag"></i>Svalbard</div>
-                                <div class="item" data-value="sz"><i class="sz flag"></i>Swaziland</div>
-                                <div class="item" data-value="se"><i class="se flag"></i>Sweden</div>
-                                <div class="item" data-value="ch"><i class="ch flag"></i>Switzerland</div>    
-                            </div>
+                        <input type="text" name="Street[address-2]" placeholder="Suburb">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="Streeet[address-2]" placeholder="City/Town">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="Streeet[address-2]" placeholder="Postal Code">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label>Contact</label>
+                <div class="four fields">
+                    <div class="field">
+                        <input type="text" name="CellNo" placeholder="Cell No">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="HomeNo" placeholder="Home No">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="Business No" placeholder="Business No">
+                    </div>
+                    <div class="field">
+                        <input type="text" name="Email" placeholder="Email Address">
+                    </div>
+                </div>
+            </div>
+                <div class="four fields">
+                    <div class="field">
+                        <label>Date Of Loss</label>
+                        <input type ="date" name ="dateOfLoss" placeholer="Date of Loss"/>
+                    </div>
+                    <div class="field">
+                        <label>Sum Insured</label>
+                        <input type="text" name ="sumInsured" placeholder="Sum Insured"/>
+                    </div>
+                    <div class="field">
+                        <label>Is Body Corperate</label>
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox"> <label></label>
                         </div>
                     </div>
                 </div>
-                <h4 class="ui dividing header">Billing Information</h4>
+                <h4 class="ui dividing header">Excess</h4>
+            <div class="three fields">
                 <div class="field">
-                    <label>Card Type</label>
-                    <div class="ui selection dropdown">
-                        <input type="hidden" name="card[type]">
-                        <div class="default text">Type</div>
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                            <div class="item" data-value="visa">
-                                <i class="visa icon"></i>
-                                Visa
-                            </div>
-                            <div class="item" data-value="amex">
-                                <i class="amex icon"></i>
-                                American Express
-                            </div>
-                            <div class="item" data-value="discover">
-                                <i class="discover icon"></i>
-                                Discover
-                            </div>
-                        </div>
-                    </div>
+                    <label>Replacement Excess</label>
+                    <input type="text" name="replacementExcess" placeholder="Replacement Excess"/>    
                 </div>
-                <div class="fields">
-                    <div class="seven wide field">
-                        <label>Card Number</label>
-                        <input type="text" name="card[number]" maxlength="16" placeholder="Card #">
-                    </div>
-                    <div class="three wide field">
-                        <label>CVC</label>
-                        <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
-                    </div>
-                    <div class="six wide field">
-                        <label>Expiration</label>
-                        <div class="two fields">
-                            <div class="field">
-                                <select class="ui fluid search dropdown" name="card[expire-month]">
-                                    <option value="">Month</option>
-                                    <option value="1">January</option>
-                                    <option value="2">February</option>
-                                    <option value="3">March</option>
-                                    <option value="4">April</option>
-                                    <option value="5">May</option>
-                                    <option value="6">June</option>
-                                    <option value="7">July</option>
-                                    <option value="8">August</option>
-                                    <option value="9">September</option>
-                                    <option value="10">October</option>
-                                    <option value="11">November</option>
-                                    <option value="12">December</option>
-                                </select>
-                            </div>
-                            <div class="field">
-                                <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <h4 class="ui dividing header">Receipt</h4>
                 <div class="field">
-                    <label>Send Receipt To:</label>
-                    <div class="ui fluid multiple search selection dropdown">
-                        <input type="hidden" name="receipt">
-                        <i class="dropdown icon"></i>
-                        <div class="default text">Saved Contacts</div>
-                        <div class="menu">
-                            <div class="item" data-value="jenny" data-text="Jenny">
-                                <img class="ui mini avatar image" src="/images/avatar/small/jenny.jpg">
-                                Jenny Hess
-                            </div>
-                            <div class="item" data-value="elliot" data-text="Elliot">
-                                <img class="ui mini avatar image" src="/images/avatar/small/elliot.jpg">
-                                Elliot Fu
-                            </div>
-                            <div class="item" data-value="stevie" data-text="Stevie">
-                                <img class="ui mini avatar image" src="/images/avatar/small/stevie.jpg">
-                                Stevie Feliciano
-                            </div>
-                            <div class="item" data-value="christian" data-text="Christian">
-                                <img class="ui mini avatar image" src="/images/avatar/small/christian.jpg">
-                                Christian
-                            </div>
-                            <div class="item" data-value="matt" data-text="Matt">
-                                <img class="ui mini avatar image" src="/images/avatar/small/matt.jpg">
-                                Matt
-                            </div>
-                            <div class="item" data-value="justen" data-text="Justen">
-                                <img class="ui mini avatar image" src="/images/avatar/small/justen.jpg">
-                                Justen Kitsune
-                            </div>
+                    <label>Repair Excess</label>
+                    <input type="text" name="repairExcess" placeholder="Repair Excess" />
+                </div>
+                <div class="field">
+                    <label>Resultant Excess</label>
+                    <input type="text" name="resultantExcess" placeholder="Resultant Excess" />
+                </div>
+            </div>
+                <h4 class="ui dividing header">Damages</h4>
+                
+                <div class="ui segment">
+                    <div class="field">
+                        <div class="ten wide field">
+                            <Label>Plumbing Failure</Label>
+                            <textarea placeholder="Plumbing Failure"></textarea>    
                         </div>
                     </div>
                 </div>
@@ -191,7 +153,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui button" tabindex="0">Submit Order</div>
+            <div class="ui green button" tabindex="0">Submit</div>
+          </form>
         </div>
     </div>
 </div>
+
