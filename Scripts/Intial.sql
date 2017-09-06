@@ -45,7 +45,6 @@ CREATE TABLE [dbo].[User](
 	[LastName] [varchar](50) NOT NULL,
 	[Password] [varchar](200) NOT NULL,
 	[Active] [bit] NOT NULL,
-	[MaintenanceUser] [bit] NOT NULL,
 	[Encrypted] [bit] NOT NULL,
 	[AddressID] [int] NULL
  CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
@@ -124,7 +123,6 @@ CREATE TABLE [dbo].[Instruction](
 	[ID] [int] IDENTITY(400,1) NOT NULL,
 	[InstructionTypeID] [int] NULL,
 	[UserID] [int] NULL,
-	[Title] [varchar](50) NULL,
 	[DateCreated] [datetime] NOT NULL,
 	[DateCompleted] [datetime] NULL,
 	[Excess] [money] NULL,
@@ -158,22 +156,18 @@ GO
 EXEC sys.sp_addextendedproperty @name=N'FrameworkEnum', @value=N'Name' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'InstructionType'
 GO
 
-CREATE TABLE [dbo].[Company](
+CREATE TABLE [dbo].[Insurer](
 	[ID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
-	[CompanyTypeID] [int] NOT NULL,
+	[InsurerTypeID] [int] NOT NULL,
 	[Name] [varchar](8000) NOT NULL,
 	[Email] [varchar](200) NULL,
 	[TelephoneNumber] [varchar](20) NULL,
-	[MobileNumber] [varchar](20) NULL,
-	[CompanyRegNumber] [varchar](200) NULL,
-	[CompanyCode] [varchar](50) NULL,
-	[CompanyWebAddress] [varchar](200) NULL,
+	[CellNumber] [varchar](20) NULL,
+	[InsuranceRegNumber] [varchar](200) NULL,
+	[InsurerWebAddress] [varchar](200) NULL,
 	[CompanyAvailabilityID] [int] NULL,
-	[ServiceProviderStatusID] [int] NULL,
-	[PaymentFrequencyID] [int] NULL,
 	[VatRegistered] [bit] NULL,
 	[VatNumber] [varchar](50) NULL,
-	[UserID] [int] NULL,
 	[AddressID] [int] NULL
  CONSTRAINT [PK_Company] PRIMARY KEY CLUSTERED 
 (
@@ -181,20 +175,6 @@ CREATE TABLE [dbo].[Company](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
-GO
-
-CREATE TABLE [dbo].[DeclineReason](
-	[ID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
-	[Name] [varchar](8000) NOT NULL,
- CONSTRAINT [PK_DeclineReason] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY]
-
-GO
-
-EXEC sys.sp_addextendedproperty @name=N'FrameworkEnum', @value=N'Name' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'DeclineReason'
 GO
 
 CREATE TABLE [dbo].[Error](
@@ -213,40 +193,24 @@ CREATE TABLE [dbo].[Error](
 
 GO
 
-CREATE TABLE [dbo].[PluginSetting](
-	[ID] [int] NOT NULL,
-	[Name] [varchar](50) NOT NULL,
-	[NextRunTime] [datetime] NOT NULL,
-	[IntervalInMinutes] [int] NOT NULL,
-	[Active] [bit] NOT NULL,
- CONSTRAINT [PK_PluginSetting] PRIMARY KEY CLUSTERED 
+CREATE TABLE [dbo].[Policy](
+	[ID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[PolicyNumber] [int] NOT NULL,
+	[PolicyName] [varchar](50) NULL,
+	[PolicyDescription] [varchar](max) NULL,
+	[DateCreated] [datetime] NOT NULL,
+	[DateUpdated] [datetime] NULL,
+ CONSTRAINT [PK_Policy] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
 
 GO
-
-EXEC sys.sp_addextendedproperty @name=N'FrameworkEnum', @value=N'Name' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'PluginSetting'
-GO
-
 CREATE TABLE [dbo].[PolicyHolder](
 	[ID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
-	[PolicyNumber] [varchar](200) NOT NULL,
+	[PolicyID] [int] NOT NULL,
 	[UserID] [int] NULL,
-	[TitleID] [int] NOT NULL,
-	[FirstName] [varchar](200) NOT NULL,
-	[Surname] [varchar](200) NOT NULL,
-	[Initials] [varchar](200) NULL,
-	[AddressID] [int] NULL,
-	[Email] [varchar](8000) NULL,
-	[HomeNumber] [varchar](200) NULL,
-	[WorkNumber] [varchar](200) NULL,
-	[CellNumber] [varchar](200) NULL,
-	[DateCreated] [datetime] NOT NULL,
-	[DateUpdated] [datetime] NULL,
-	[MemberToPayIndicator] [bit] NOT NULL,
-	[Gender] [varchar](10) NULL,
  CONSTRAINT [PK_PolicyHolder] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -283,7 +247,6 @@ GO
 CREATE TABLE [dbo].[Province](
 	[ID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
 	[Name] [varchar](50) NOT NULL,
-	[CountryID] [int] NOT NULL,
  CONSTRAINT [PK_Province] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -296,11 +259,7 @@ CREATE TABLE [dbo].[Region](
 	[ID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
 	[Name] [varchar](200) NOT NULL,
 	[Description] [varchar](200) NULL,
-	[ProvinceID] [int] NOT NULL,
-	[EffectiveDate] [datetime] NOT NULL,
-	[InactiveDate] [datetime] NULL,
 	[PostalCode] [varchar](20) NOT NULL,
-	[Status]  AS (isnull(CONVERT([bit],case when [EffectiveDate]<=CONVERT([date],getdate()) AND ([InactiveDate] IS NULL OR [InactiveDate]>CONVERT([date],getdate())) then (1) else (0) end),(0))),
  CONSTRAINT [PK_Region] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -312,7 +271,6 @@ GO
 CREATE TABLE [dbo].[Suburb](
 	[ID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
 	[Name] [varchar](8000) NOT NULL,
-	[CityID] [int] NOT NULL,
  CONSTRAINT [PK_Suburb] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -324,7 +282,6 @@ GO
 CREATE TABLE [dbo].[City](
 	[ID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
 	[Name] [varchar](8000) NOT NULL,
-	[ProvinceID] [int] NOT NULL,
  CONSTRAINT [PK_City] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -344,29 +301,11 @@ CREATE TABLE [dbo].[Country](
 
 GO
 
-CREATE TABLE [dbo].[UpdateScriptLog](
-	[ID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
-	[ScriptName] [varchar](256) NOT NULL,
-	[DateApplied] [datetime] NOT NULL,
-	[Script] [varchar](max) NOT NULL,
- CONSTRAINT [PK_UpdateScriptLog] PRIMARY KEY CLUSTERED 
-(
-	[ID] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-
-GO
-
-ALTER TABLE [dbo].[UpdateScriptLog] ADD  CONSTRAINT [DF_UpdateScriptLog_DateApplied]  DEFAULT (getdate()) FOR [DateApplied]
-GO
-
-
 CREATE TABLE [dbo].[Diary](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[InstructionID] [int] NOT NULL,
 	[DiaryTypeID] [int] NOT NULL,
 	[UserID] [int] NOT NULL,
-	[ExternalID] [int] NULL,
 	[Message] [varchar](8000) NOT NULL,
 	[DateCreated] [datetime] NOT NULL,
  CONSTRAINT [PK_Diary] PRIMARY KEY CLUSTERED 

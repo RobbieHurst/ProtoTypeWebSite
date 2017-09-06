@@ -147,8 +147,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\SemanticUIStart.cs" />
     <Compile Include="Controllers\ClaimController.cs" />
+    <Compile Include="Controllers\EditClaimController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewClaimController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SemanticUIController.cs" />
     <Compile Include="Controllers\TableController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -170,6 +172,10 @@
     <Content Include="components\breadcrumb.min.css" />
     <Content Include="components\button.css" />
     <Content Include="components\button.min.css" />
+    <Content Include="components\calendar.css" />
+    <Content Include="components\calendar.js" />
+    <Content Include="components\calendar.min.css" />
+    <Content Include="components\calendar.min.js" />
     <Content Include="components\card.css" />
     <Content Include="components\card.min.css" />
     <Content Include="components\checkbox.css" />
@@ -302,9 +308,12 @@
     <Content Include="Content\card.min.css" />
     <Content Include="Content\Images\bg.jpg" />
     <Content Include="Content\Images\cat.png" />
+    <Content Include="Content\Images\Digicall_Solutions_Logo.jpg" />
     <Content Include="Content\semantic.css" />
     <Content Include="Content\semantic.min.css" />
     <Content Include="Content\semantic.site.css" />
+    <Content Include="Content\calendar.css" />
+    <Content Include="Content\calendar.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\basic.icons.svg" />
     <Content Include="fonts\icons.svg" />
@@ -321,6 +330,8 @@
     <Content Include="fonts\basic.icons.ttf" />
     <Content Include="fonts\basic.icons.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\calendar.js" />
+    <Content Include="Scripts\calendar.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -375,6 +386,8 @@
     <Content Include="Content\themes\material\assets\fonts\icons.woff" />
     <Content Include="Content\themes\material\assets\fonts\icons.woff2" />
     <Content Include="Views\NewClaim\Index.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\EditClaim\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

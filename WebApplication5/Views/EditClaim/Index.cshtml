@@ -1,0 +1,196 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Semantic.cshtml";
+}
+<div class="ui page grid stackable relaxed feature segment">
+    <div class="row">
+        <div class="sixteen wide column">
+            <form class="ui form">
+                <h4 class="ui dividing header">Claim Information</h4>
+                <div class="four fields">
+                    <div class="field">
+                        <label>Order No</label>
+                        <div class="field">
+                            <input type="text" name="policyNo" placeholder="Policy No" value="test">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Claim No</label>
+                        <div class="field">
+                            <div class="field">
+                                <input type="text" name="shipping[first-name]" placeholder="Claim No">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label >Policy</label>
+                    <div class="four fields">
+                    
+                        <div class="field">
+                            <input type="text" name="policyHolder" placeholder="Policy Holder">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="policyHolderTitle" placeholder="Policy Holder Title">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="policyHolderInitials" placeholder="Policy Holder Initials">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="policyHolderSurname" placeholder="Policy Holder Surname">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Address</label>
+                    <div class="four fields">
+                        <div class="field">
+                            <input type="text" name="Street[address]" placeholder="Street Address">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="Street[address-2]" placeholder="Suburb">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="Streeet[address-2]" placeholder="City/Town">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="Streeet[address-2]" placeholder="Postal Code">
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Contact</label>
+                    <div class="four fields">
+                        <div class="field">
+                            <input type="text" name="CellNo" placeholder="Cell No">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="HomeNo" placeholder="Home No">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="Business No" placeholder="Business No">
+                        </div>
+                        <div class="field">
+                            <input type="text" name="Email" placeholder="Email Address">
+                        </div>
+                    </div>
+                </div>
+                <div class="four fields">
+                    <div class="field">
+                        <label>Date Of Loss</label>
+                        <input type ="date" name ="dateOfLoss" placeholer="Date of Loss"/>
+                    </div>
+                    <div class="field">
+                        <label>Sum Insured</label>
+                        <input type="text" name ="sumInsured" placeholder="Sum Insured"/>
+                    </div>
+                    <div class="field">
+                        <label>Is Body Corperate</label>
+                        <div class="ui fitted slider checkbox">
+                            <input type="checkbox"> <label></label>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="ui dividing header">Progress</h4>
+                <div class="field">
+                    <label>Fogi</label>
+                </div>
+                <div class="field">
+                    <label>Izinga</label>
+                    
+                </div>
+                <div class="ui teal progress" data-percent="74" id="example1">
+                    <div class="bar"></div>
+                    <div class="label">74% Funded</div>
+                </div>
+                
+                @*<div class="three fields">
+                    <div class="field">
+                        <label>Claim Progress</label>
+                        <input type="text" name="replacementExcess" placeholder="Replacement Excess" />
+                    </div>
+                    <div class="field">
+                        <label>Repair Excess</label>
+                        <input type="text" name="repairExcess" placeholder="Repair Excess" />
+                    </div>
+                    <div class="field">
+                        <label>Resultant Excess</label>
+                        <input type="text" name="resultantExcess" placeholder="Resultant Excess" />
+                    </div>
+                </div>
+                <h4 class="ui dividing header">Excess</h4>
+                <div class="three fields">
+                    <div class="field">
+                        <label>Replacement Excess</label>
+                        <input type="text" name="replacementExcess" placeholder="Replacement Excess"/>    
+                    </div>
+                    <div class="field">
+                        <label>Repair Excess</label>
+                        <input type="text" name="repairExcess" placeholder="Repair Excess" />
+                    </div>
+                    <div class="field">
+                        <label>Resultant Excess</label>
+                        <input type="text" name="resultantExcess" placeholder="Resultant Excess" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Head Office</label>
+                    <select class="ui fluid dropdown">
+                        <option value="VA">ABSA IDirect</option>
+                        <option value="WA">ABACUS</option>
+                        <option value="WV">Kwikot</option>
+                        <option value="WI">Momentum</option>
+                        <option value="WY">PSG</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Branch</label>
+                    <select class="ui fluid dropdown">
+                        <option value="VA">ABSA IDirect</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Advisor</label>
+                    <select class="ui fluid dropdown">
+                        <option value="VA">[Auto Select Advisor]</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Policy Type</label>
+                    <select class="ui fluid dropdown">
+                        <option value="VA">[Auto Select Policy]</option>
+                    </select>
+                </div>
+                <h4 class="ui dividing header">Damages</h4>
+                
+                <div class="ui segment">
+                    <div class="field">
+                        <div class="ten wide field">
+                            <Label>Plumbing Failure</Label>
+                            <textarea placeholder="Plumbing Failure"></textarea>    
+                        </div>
+                    </div>
+                </div>
+                <div class="ui segment">
+                    <div class="field">
+                        <div class="ui slider checkbox">
+                            <input type="checkbox" name="gift" tabindex="0" class="hidden">
+                            <label>Do not include a receipt in the package</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="ui green button" tabindex="0">Submit</div>*@
+            </form>
+        </div>
+    </div>
+</div>
+<script type='text/javascript'>
+
+    $(document).ready(function () {
+
+        $('#example1').progress({
+            percent: 74
+        });
+        
+    });
+
+</script>

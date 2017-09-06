@@ -9,7 +9,7 @@
     @Styles.Render("~/Content/calendar")
 </head>
 <body>
-    <div class="ui page grid masthead segment">
+    <div class="ui page grid masthead segment grey">
         <div class="column">
             <div class="inverted secondary pointing ui menu">
                 <div class="header item">Digicall</div>
@@ -27,24 +27,25 @@
                         System
                         <i class="dropdown icon"></i>
                         <div class="menu">
-                            <a class="item">Home</a>
+                            <a class="item" href="@Url.Action("Index", "Claim")">Home</a>
                             <a class="item">Communications</a>
                             <a class="item">Documents</a>
                         </div>
                     </div>
                     <a class="item">Library</a>
                     <a class="item">Community</a>
+                    <a class="item" href="@Url.Action("Index", "Search")"><i class="search icon"></i></a>
                 </div>
             </div>
-            <img src="" class="ui medium image" />
+            <img src="" class="ui large image" />
             <div class="ui hidden transition information">
                 <h1 class="ui inverted header">
                     Digicall Group
                 </h1>
                 <p></p>
                 <div class="large basic inverted animated fade ui button">
-                    <div class="visible content">Come to ICU 2013</div>
-                    <div class="hidden content">Register Now</div>
+                    <div class="visible content">Your Business Needs</div>
+                    <div class="hidden content">Now!</div>
                 </div>
             </div>
         </div>
